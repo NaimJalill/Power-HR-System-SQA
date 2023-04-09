@@ -11,7 +11,7 @@ function ShortlistApplicant() {
 
   // useEffect(() => {
   //   axios
-  //     .get("https://powerhr-server.azurewebsites.net/applicants", {
+  //     .get("http://localhost:5000/applicants", {
   //       headers: {
   //         Authorization: `Bearer ${localStorage.getItem("authToken")}`,
   //       },

@@ -123,7 +123,7 @@ export default function ShortlistTable() {
 
   useEffect(() => {
     axios
-      .get("https://powerhr-server.azurewebsites.net/applications/jobs")
+      .get("http://localhost:5000/applications/jobs")
       .then((res) => {
         setRows(res.data);
       })

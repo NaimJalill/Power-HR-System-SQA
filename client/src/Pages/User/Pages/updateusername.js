@@ -40,7 +40,7 @@ function ProfileUsername() {
 
   useEffect(() => {
     axios
-      .get(`https://powerhr-server.azurewebsites.net/users/username/${userId}/`)
+      .get(`http://localhost:5000/users/username/${userId}/`)
       .then((res) => {
         setUser(res.data);
         setIsLoading(false);
@@ -57,7 +57,7 @@ function ProfileUsername() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`https://powerhr-server.azurewebsites.net/users/updateusername/${userId}/`, user)
+      .put(`http://localhost:5000/users/updateusername/${userId}/`, user)
       .then((res) => {
         setSuccess({
           fetchSuccess: true,

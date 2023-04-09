@@ -100,7 +100,7 @@ function JobPage() {
     handlePageClick(active);
     // get the applied jobs
     axios
-      .get(`https://powerhr-server.azurewebsites.net/applications/appliedby/${detailId}`)
+      .get(`http://localhost:5000/applications/appliedby/${detailId}`)
       .then((res) => {
         setAppliedJob(res.data);
       })
@@ -127,7 +127,7 @@ function JobPage() {
 
     axios
       .get(
-        `https://powerhr-server.azurewebsites.net/jobs?page=${e}&search=${search}&specializations=${spec}`
+        `http://localhost:5000/jobs?page=${e}&search=${search}&specializations=${spec}`
       )
       .then((res) => {
         setJobs(res.data.results);
@@ -166,7 +166,7 @@ function JobPage() {
 
   const handleApply = (e) => {
     axios
-      .post(`https://powerhr-server.azurewebsites.net/applications/${detailId}/apply/${job?._id}`)
+      .post(`http://localhost:5000/applications/${detailId}/apply/${job?._id}`)
       .then((res) => {
         setAppliedJob([...appliedJob, job?._id]);
       })
