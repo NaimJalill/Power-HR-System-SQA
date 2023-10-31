@@ -211,7 +211,7 @@ export default function AppTable(props) {
   const handleShortlist = async (applicationId, status, currentQuota, id) => {
     // e.preventDefault();
     axios
-      .patch(`https://powerhr-server.azurewebsites.net/applications/${applicationId}`, {
+      .patch(`http://localhost:5000/applications/${applicationId}`, {
         applicationStatus: status,
       })
       .then((res) => {
@@ -234,7 +234,7 @@ export default function AppTable(props) {
 
   const handleQuota = async (latestQuota, id) =>{
     axios
-      .patch(`https://powerhr-server.azurewebsites.net/jobs/${id}`, {
+      .patch(`http://localhost:5000/jobs/${id}`, {
         quota: latestQuota,
       })
       .catch((err) => {
@@ -245,7 +245,7 @@ export default function AppTable(props) {
   const deleteApplication = async (applicationId) => {
     // e.preventDefault();
     axios
-      .delete(`https://powerhr-server.azurewebsites.net/applications/${applicationId}`)
+      .delete(`http://localhost:5000/applications/${applicationId}`)
       .then((res) => {
         // console.log(status);
         // console.log(index);

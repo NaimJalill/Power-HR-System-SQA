@@ -11,7 +11,7 @@ function ManageFeedback() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('https://powerhr-server.azurewebsites.net/feedbacks/')
+        axios.get('http://localhost:5000/feedbacks/')
         .then(res => {
             setFeedback(res.data);
             setIsLoading(false);

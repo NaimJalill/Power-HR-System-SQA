@@ -10,7 +10,7 @@ function ManageJob() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('https://powerhr-server.azurewebsites.net/jobs/all', {
+        axios.get('http://localhost:5000/jobs/all', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('authToken')}`
             }

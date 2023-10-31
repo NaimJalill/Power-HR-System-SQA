@@ -27,12 +27,12 @@ function ApplicantRegister() {
   const theme = createTheme();
 
   const [user, setUser] = useState({
-    applicantName: "",
+    name: "",
     username: "",
-    applicantEmail: "",
+    email: "",
     password: "",
     confirmPassword: "",
-    applicantContact: "",
+    contact: "",
   });
 
   const [success, setSuccess] = useState(false);
@@ -41,18 +41,18 @@ function ApplicantRegister() {
   //validate inputs
   const validate = () => {
     let temp = {};
-    temp.applicantName = user.applicantName ? "" : "This field is required.";
+    temp.name = user.name ? "" : "This field is required.";
     temp.username = user.username ? "" : "This field is required.";
     temp.password = PWD_REGEX.test(user.password)
       ? ""
       : "Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, and one number.";
-    temp.applicantEmail = EMAIL_REGEX.test(user.applicantEmail)
+    temp.email = EMAIL_REGEX.test(user.email)
       ? ""
       : "Email is not valid.";
     temp.confirmPassword =
       user.confirmPassword === user.password ? "" : "Passwords do not match";
-    temp.applicantContact =
-      user.applicantContact.length === 10
+    temp.contact =
+      user.contact.length === 10
         ? ""
         : "Contact number must be 10 digits";
 
@@ -66,7 +66,7 @@ function ApplicantRegister() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`https://powerhr-server.azurewebsites.net/applicants/register`, user)
+      .post(`http://localhost:5000/applicants/register`, user)
       .then((res) => {
         setSuccess(true);
         window.alert("You have successfully registered!");
@@ -122,14 +122,14 @@ function ApplicantRegister() {
                   fullWidth
                   id="applicantName"
                   label="Full Name"
-                  value={user.applicantName}
+                  value={user.name}
                   onChange={(e) =>
-                    setUser({ ...user, applicantName: e.target.value })
+                    setUser({ ...user, name: e.target.value })
                   }
                   autoFocus
-                  {...(error.applicantName && {
+                  {...(error.name && {
                     error: true,
-                    helperText: error.applicantName,
+                    helperText: error.name,
                   })}
                 />
               </Grid>
@@ -156,17 +156,17 @@ function ApplicantRegister() {
                 <TextField
                   required
                   fullWidth
-                  id="applicantEmail"
+                  id="email"
                   label="Email Address"
-                  name="applicantEmail"
-                  autoComplete="applicantEmail"
-                  value={user.applicantEmail}
+                  name="email"
+                  autoComplete="email"
+                  value={user.email}
                   onChange={(e) =>
-                    setUser({ ...user, applicantEmail: e.target.value })
+                    setUser({ ...user, email: e.target.value })
                   }
-                  {...(error.applicantEmail && {
+                  {...(error.email && {
                     error: true,
-                    helperText: error.applicantEmail,
+                    helperText: error.email,
                   })}
                 />
               </Grid>
@@ -212,17 +212,17 @@ function ApplicantRegister() {
                 <TextField
                   required
                   fullWidth
-                  id="applicantContact"
+                  id="contact"
                   label="Contact Number"
-                  name="applicantContact"
-                  autoComplete="applicantContact"
-                  value={user.applicantContact}
+                  name="contact"
+                  autoComplete="contact"
+                  value={user.contact}
                   onChange={(e) =>
-                    setUser({ ...user, applicantContact: e.target.value })
+                    setUser({ ...user, contact: e.target.value })
                   }
-                  {...(error.applicantContact && {
+                  {...(error.contact && {
                     error: true,
-                    helperText: error.applicantContact,
+                    helperText: error.contact,
                   })}
                 />
               </Grid>

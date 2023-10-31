@@ -230,7 +230,7 @@ export default function FeedbackTable() {
   const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-    axios.get('https://powerhr-server.azurewebsites.net/feedbacks', {
+    axios.get('http://localhost:5000/feedbacks', {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('authToken')}`
         }
@@ -245,7 +245,7 @@ export default function FeedbackTable() {
 }, [])
     
 const handleDelete = (id) => {
-    axios.delete(`https://powerhr-server.azurewebsites.net/feedbacks/${id}`, {
+    axios.delete(`http://localhost:5000/feedbacks/${id}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('authToken')}`
         }

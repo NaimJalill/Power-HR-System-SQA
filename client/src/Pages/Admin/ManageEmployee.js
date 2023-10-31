@@ -25,7 +25,7 @@ function ManageEmployee() {
     }
 
     useEffect(() => {
-        axios.get('https://powerhr-server.azurewebsites.net/employees', {
+        axios.get('http://localhost:5000/employees', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('authToken')}`
             }

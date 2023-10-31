@@ -9,7 +9,7 @@ function JobList() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('https://powerhr-server.azurewebsites.net/jobs/title')
+        axios.get('http://localhost:5000/jobs/title')
             .then(res => {
                 setJobs(res.data);
                 setLoading(false);

@@ -20,7 +20,7 @@ router.patch('/:id',AuthAdmin, updateEmployee);
 
 router.delete('/:id', AuthAdmin, deleteEmployee);
 
-router.post('/register', AuthAdmin, registerEmployee);
+router.post('/register', registerEmployee);
 
 router.patch('/remove/:id', AuthAdmin, removeEmployee);
 

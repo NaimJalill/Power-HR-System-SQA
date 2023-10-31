@@ -4,7 +4,7 @@ import axios from 'axios';
 
 function DeleteJob(props) {
     const deleteJob = () => {
-        axios.delete(`https://powerhr-server.azurewebsites.net/jobs/${props.id}`, {
+        axios.delete(`http://localhost:5000/jobs/${props.id}`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('authToken')}`
             }

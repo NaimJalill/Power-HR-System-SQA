@@ -56,7 +56,7 @@ function ViewApplication() {
 
   useEffect(() => { 
     axios
-      .get(`https://powerhr-server.azurewebsites.net/applications/byapplicant/${applicantId}`)
+      .get(`http://localhost:5000/applications/byapplicant/${applicantId}`)
       .then((res) => {
         setApplications(res.data);
         setJobs(res.data.map((application) => application.job));
